@@ -267,14 +267,14 @@ void movement()
 		return;
 	for (int i = 0; i < g.n; i++) {
 		Particle *p = &g.particle[i];
-			p->s.center.x += p->velocity.x;
-			p->s.center.y += p->velocity.y;
-			p->velocity.y += GRAVITY;
+        p->s.center.x += p->velocity.x;
+        p->s.center.y += p->velocity.y;
+        p->velocity.y += GRAVITY;
 		//check for collision with shapes...
 		Shape *s= &g.box;
-		if (p->s.center.y < s->center.y + s->height && 
+		if (p->s.center.y < s->center.y + s->height &&
+            p->s.center.x < s->center.x + s->width &&
 			p->s.center.x > s->center.x - s->width &&
-			p->s.center.x < s->center.x + s->width &&
 			p->s.center.y > s->center.y - s->height) {
 		// bounce
 			p->velocity.y = -p->velocity.y;
